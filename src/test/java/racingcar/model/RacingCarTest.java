@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-class CarTest {
+class RacingCarTest {
 
     private static final String CAR_NAME = "pobi";
 
@@ -21,25 +21,25 @@ class CarTest {
     @ValueSource(ints = {0, 1, 2, 3})
     public void 앞으로_움직이지_않는_경우_테스트(int randomNumber) {
         // given
-        final Car car = new Car(carName);
+        final RacingCar racingCar = new RacingCar(carName);
 
         // when
-        final Car unmovedCar = car.move(randomNumber);
+        final RacingCar unmovedRacingCar = racingCar.move(randomNumber);
 
         // then
-        assertEquals(unmovedCar.toString(), CAR_NAME + " : " + "");
+        assertEquals(unmovedRacingCar.toString(), CAR_NAME + " : " + "");
     }
 
     @ParameterizedTest
     @ValueSource(ints = {4, 5, 6, 7, 8, 9})
     public void 앞으로_움직인_경우_테스트(int randomNumber) {
         // given
-        final Car car = new Car(carName);
+        final RacingCar racingCar = new RacingCar(carName);
 
         // when
-        final Car movedCar = car.move(randomNumber);
+        final RacingCar movedRacingCar = racingCar.move(randomNumber);
 
         // then
-        assertEquals(movedCar.toString(), CAR_NAME + " : " + "-");
+        assertEquals(movedRacingCar.toString(), CAR_NAME + " : " + "-");
     }
 }

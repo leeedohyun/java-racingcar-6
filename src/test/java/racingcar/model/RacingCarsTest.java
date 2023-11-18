@@ -4,7 +4,7 @@ import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class CarsTest {
+class RacingCarsTest {
 
     private final Name POBI = new Name("pobi");
     private final Name WONI = new Name("woni");
@@ -13,10 +13,10 @@ class CarsTest {
     @Test
     public void 이름_중복_테스트() {
         // given
-        final List<Car> cars = List.of(new Car(POBI), new Car(WONI), new Car(ANOTHER_POBI));
+        final List<RacingCar> racingCars = List.of(new RacingCar(POBI), new RacingCar(WONI), new RacingCar(ANOTHER_POBI));
 
         // then
-        Assertions.assertThatThrownBy(() -> new Cars(cars))
+        Assertions.assertThatThrownBy(() -> new RacingCars(racingCars))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }

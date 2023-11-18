@@ -4,7 +4,7 @@ import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class CarFactoryTest {
+class RacingRacingCarFactoryTest {
 
     private static final Name POBI = new Name("pobi");
     private static final Name WONI = new Name("woni");
@@ -15,9 +15,9 @@ class CarFactoryTest {
         final List<Name> namesOfCars = List.of(POBI, WONI);
 
         // when
-        final List<Car> cars = CarFactory.generateCar(namesOfCars);
+        final List<RacingCar> racingCars = RacingCarFactory.generateCar(namesOfCars);
 
         // then
-        Assertions.assertThat(cars).hasSize(2);
+        Assertions.assertThat(racingCars).hasSize(2);
     }
 }

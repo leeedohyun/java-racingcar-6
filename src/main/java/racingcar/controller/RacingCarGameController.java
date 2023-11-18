@@ -1,9 +1,9 @@
 package racingcar.controller;
 
 import java.util.List;
-import racingcar.model.Car;
-import racingcar.model.CarFactory;
-import racingcar.model.Cars;
+import racingcar.model.RacingCar;
+import racingcar.model.RacingCarFactory;
+import racingcar.model.RacingCars;
 import racingcar.model.Name;
 import racingcar.model.RandomNumberGenerator;
 import racingcar.model.Utils;
@@ -18,18 +18,18 @@ public class RacingCarGameController {
         OutputView.printInputCarsNameMessage();
 
         List<Name> namesOfCars = Utils.splitNamesOfCars(InputView.inputCarsNamesOfCars());
-        List<Car> carList = CarFactory.generateCar(namesOfCars);
-        Cars cars = new Cars(carList);
+        List<RacingCar> racingCarList = RacingCarFactory.generateCar(namesOfCars);
+        RacingCars racingCars = new RacingCars(racingCarList);
 
         OutputView.printInputNumberOfMovesMessage();
         int numberOfMoves = InputView.inputNumberOfMoves();
 
         for (int moveCount = 0; moveCount < numberOfMoves; moveCount++) {
-            List<Car> movedCars = cars.move(randomNumberGenerator);
-            OutputView.printCurrentLocations(movedCars);
+            List<RacingCar> movedRacingCars = racingCars.move(randomNumberGenerator);
+            OutputView.printCurrentLocations(movedRacingCars);
         }
 
-        String winnerNamesOfCars = cars.findWinners();
+        String winnerNamesOfCars = racingCars.findWinners();
 
         OutputView.printWinnerNames(winnerNamesOfCars);
     }

@@ -2,7 +2,7 @@ package racingcar.model;
 
 import java.util.Objects;
 
-public class Car {
+public class RacingCar {
 
     private static final int FORWARD_BASE_NUMBER = 4;
     private static final String SEPARATOR = " : ";
@@ -10,21 +10,21 @@ public class Car {
     private final Name name;
     private final Location location;
 
-    public Car(Name name) {
+    public RacingCar(Name name) {
         this.name = name;
         location = new Location();
     }
 
-    private Car(Name name, Location location) {
+    private RacingCar(Name name, Location location) {
         this.name = name;
         this.location = location;
     }
 
-    public Car move(int randomNumber) {
+    public RacingCar move(int randomNumber) {
         if (isForward(randomNumber)) {
             location.goForward();
         }
-        return new Car(name, location);
+        return new RacingCar(name, location);
     }
 
     public int getLocationLength() {
@@ -43,8 +43,8 @@ public class Car {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Car car = (Car) o;
-        return Objects.equals(name, car.name) && Objects.equals(location, car.location);
+        RacingCar racingCar = (RacingCar) o;
+        return Objects.equals(name, racingCar.name) && Objects.equals(location, racingCar.location);
     }
 
     @Override
