@@ -12,25 +12,33 @@ import racingcar.view.OutputView;
 
 public class RacingCarGameController {
 
-    private final RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+    private final RandomNumberGenerator randomNumberGenerator;
+    private final InputView inputView;
+    private final OutputView outputView;
+
+    public RacingCarGameController(final InputView inputView, final OutputView outputView) {
+        this.inputView = inputView;
+        this.outputView = outputView;
+        randomNumberGenerator = new RandomNumberGenerator();
+    }
 
     public void playRacingCarGame() {
-        OutputView.printInputCarsNameMessage();
+        outputView.printInputCarsNameMessage();
 
-        final List<Name> namesOfCars = Utils.splitNamesOfCars(InputView.inputCarsNamesOfCars());
+        final List<Name> namesOfCars = Utils.splitNamesOfCars(inputView.inputCarsNamesOfCars());
         final List<RacingCar> racingCarList = RacingCarFactory.generateCar(namesOfCars);
         final RacingCars racingCars = new RacingCars(racingCarList);
 
-        OutputView.printInputNumberOfMovesMessage();
-        final int numberOfMoves = InputView.inputNumberOfMoves();
+        outputView.printInputNumberOfMovesMessage();
+        final int numberOfMoves = inputView.inputNumberOfMoves();
 
         for (int moveCount = 0; moveCount < numberOfMoves; moveCount++) {
             final List<RacingCar> movedRacingCars = racingCars.move(randomNumberGenerator);
-            OutputView.printCurrentLocations(movedRacingCars);
+            outputView.printCurrentLocations(movedRacingCars);
         }
 
         final String winnerNamesOfCars = racingCars.findWinners();
 
-        OutputView.printWinnerNames(winnerNamesOfCars);
+        outputView.printWinnerNames(winnerNamesOfCars);
     }
 }

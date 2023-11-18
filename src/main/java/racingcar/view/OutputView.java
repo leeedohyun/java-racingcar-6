@@ -9,22 +9,22 @@ public class OutputView {
     private static final String INPUT_NUMBERS_OF_MOVES_MESSAGE = "시도할 회수는 몇회인가요?";
     private static final String WINNER_MESSAGE = "최종 우승자 : ";
 
-    public static void printInputCarsNameMessage() {
+    public void printInputCarsNameMessage() {
         System.out.println(INPUT_CARS_NAME_MESSAGE);
     }
 
-    public static void printInputNumberOfMovesMessage() {
+    public void printInputNumberOfMovesMessage() {
         System.out.println(INPUT_NUMBERS_OF_MOVES_MESSAGE);
     }
 
-    public static void printCurrentLocations(final List<RacingCar> movedRacingCar) {
+    public void printCurrentLocations(final List<RacingCar> movedRacingCar) {
         for (final RacingCar racingCar : movedRacingCar) {
             System.out.println(racingCar);
         }
         System.out.println();
     }
 
-    public static void printWinnerNames(final String winnerNames) {
+    public void printWinnerNames(final String winnerNames) {
         System.out.println(WINNER_MESSAGE + winnerNames);
     }
 }

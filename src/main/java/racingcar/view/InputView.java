@@ -5,11 +5,11 @@ import racingcar.model.Utils;
 
 public class InputView {
 
-    public static String inputCarsNamesOfCars() {
+    public String inputCarsNamesOfCars() {
         return Console.readLine();
     }
 
-    public static int inputNumberOfMoves() {
+    public int inputNumberOfMoves() {
         return Utils.convertStringToInt(Console.readLine());
     }
 }
