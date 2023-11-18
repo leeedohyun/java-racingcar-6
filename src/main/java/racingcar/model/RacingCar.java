@@ -6,23 +6,25 @@ public class RacingCar {
 
     private static final int FORWARD_BASE_NUMBER = 4;
     private static final String SEPARATOR = " : ";
+    private static final String START_LOCATION = "";
 
     private final Name name;
     private final Location location;
 
     public RacingCar(final Name name) {
         this.name = name;
-        location = new Location("");
+        location = new Location(START_LOCATION);
     }
 
-    private RacingCar(final Name name, final Location location) {
+    public RacingCar(final Name name, final Location location) {
         this.name = name;
         this.location = location;
     }
 
     public RacingCar move(final int randomNumber) {
         if (isForward(randomNumber)) {
-            location.goForward();
+            final Location movedLocation = location.goForward();
+            return new RacingCar(name, movedLocation);
         }
         return new RacingCar(name, location);
     }

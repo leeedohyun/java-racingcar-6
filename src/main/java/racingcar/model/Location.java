@@ -2,7 +2,6 @@ package racingcar.model;
 
 public class Location {
 
-    private static final String EMPTY_SPACE = "";
     private static final String FORWARD_MOVEMENT_INDICATOR = "-";
 
     private final String location;
