@@ -12,7 +12,7 @@ public class RacingCar {
 
     public RacingCar(final Name name) {
         this.name = name;
-        location = new Location();
+        location = new Location("");
     }
 
     private RacingCar(final Name name, final Location location) {

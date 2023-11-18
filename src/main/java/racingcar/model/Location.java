@@ -5,10 +5,14 @@ public class Location {
     private static final String EMPTY_SPACE = "";
     private static final String FORWARD_MOVEMENT_INDICATOR = "-";
 
-    private String location = EMPTY_SPACE;
+    private final String location;
 
-    public void goForward() {
-        location += FORWARD_MOVEMENT_INDICATOR;
+    public Location(final String location) {
+        this.location = location;
+    }
+
+    public Location goForward() {
+        return new Location(location + FORWARD_MOVEMENT_INDICATOR);
     }
 
     public int getLocationLength() {
