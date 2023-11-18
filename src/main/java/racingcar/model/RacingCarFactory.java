@@ -7,9 +7,9 @@ public class RacingCarFactory {
     private RacingCarFactory() {
     }
 
-    public static List<RacingCar> generateCar(List<Name> namesOfCars) {
+    public static List<RacingCar> generateCar(final List<Name> namesOfCars) {
         return namesOfCars.stream()
-                .map(carName -> new RacingCar(carName))
+                .map(RacingCar::new)
                 .toList();
     }
 }

@@ -17,19 +17,19 @@ public class RacingCarGameController {
     public void playRacingCarGame() {
         OutputView.printInputCarsNameMessage();
 
-        List<Name> namesOfCars = Utils.splitNamesOfCars(InputView.inputCarsNamesOfCars());
-        List<RacingCar> racingCarList = RacingCarFactory.generateCar(namesOfCars);
-        RacingCars racingCars = new RacingCars(racingCarList);
+        final List<Name> namesOfCars = Utils.splitNamesOfCars(InputView.inputCarsNamesOfCars());
+        final List<RacingCar> racingCarList = RacingCarFactory.generateCar(namesOfCars);
+        final RacingCars racingCars = new RacingCars(racingCarList);
 
         OutputView.printInputNumberOfMovesMessage();
-        int numberOfMoves = InputView.inputNumberOfMoves();
+        final int numberOfMoves = InputView.inputNumberOfMoves();
 
         for (int moveCount = 0; moveCount < numberOfMoves; moveCount++) {
-            List<RacingCar> movedRacingCars = racingCars.move(randomNumberGenerator);
+            final List<RacingCar> movedRacingCars = racingCars.move(randomNumberGenerator);
             OutputView.printCurrentLocations(movedRacingCars);
         }
 
-        String winnerNamesOfCars = racingCars.findWinners();
+        final String winnerNamesOfCars = racingCars.findWinners();
 
         OutputView.printWinnerNames(winnerNamesOfCars);
     }

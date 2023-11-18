@@ -10,17 +10,17 @@ public class RacingCar {
     private final Name name;
     private final Location location;
 
-    public RacingCar(Name name) {
+    public RacingCar(final Name name) {
         this.name = name;
         location = new Location();
     }
 
-    private RacingCar(Name name, Location location) {
+    private RacingCar(final Name name, final Location location) {
         this.name = name;
         this.location = location;
     }
 
-    public RacingCar move(int randomNumber) {
+    public RacingCar move(final int randomNumber) {
         if (isForward(randomNumber)) {
             location.goForward();
         }
@@ -32,7 +32,7 @@ public class RacingCar {
     }
 
     public String getName() {
-        return name.name();
+        return name.getName();
     }
 
     @Override
@@ -57,7 +57,7 @@ public class RacingCar {
         return getName() + SEPARATOR + location;
     }
 
-    private boolean isForward(int randomNumber) {
+    private boolean isForward(final int randomNumber) {
         return randomNumber >= FORWARD_BASE_NUMBER;
     }
 }

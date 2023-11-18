@@ -17,14 +17,14 @@ public class OutputView {
         System.out.println(INPUT_NUMBERS_OF_MOVES_MESSAGE);
     }
 
-    public static void printCurrentLocations(List<RacingCar> movedRacingCar) {
-        for (RacingCar racingCar : movedRacingCar) {
+    public static void printCurrentLocations(final List<RacingCar> movedRacingCar) {
+        for (final RacingCar racingCar : movedRacingCar) {
             System.out.println(racingCar);
         }
         System.out.println();
     }
 
-    public static void printWinnerNames(String winnerNames) {
+    public static void printWinnerNames(final String winnerNames) {
         System.out.println(WINNER_MESSAGE + winnerNames);
     }
 }

@@ -12,12 +12,12 @@ public class RacingCars {
 
     private final List<RacingCar> racingCars;
 
-    public RacingCars(List<RacingCar> racingCars) {
+    public RacingCars(final List<RacingCar> racingCars) {
         validateDuplicateName(racingCars);
         this.racingCars = racingCars;
     }
 
-    public List<RacingCar> move(RandomNumberGenerator randomNumberGenerator) {
+    public List<RacingCar> move(final RandomNumberGenerator randomNumberGenerator) {
         return racingCars.stream()
                 .map(car -> car.move(randomNumberGenerator.generate()))
                 .toList();
@@ -31,7 +31,7 @@ public class RacingCars {
                 .collect(Collectors.joining(WINNER_DELIMITER));
     }
 
-    private void validateDuplicateName(List<RacingCar> racingCars) {
+    private void validateDuplicateName(final List<RacingCar> racingCars) {
         Set<RacingCar> duplicateRacingCars = new HashSet<>(racingCars);
 
         if (racingCars.size() != duplicateRacingCars.size()) {

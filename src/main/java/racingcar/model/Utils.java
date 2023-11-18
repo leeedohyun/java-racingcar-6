@@ -10,15 +10,15 @@ public class Utils {
     private Utils() {
     }
 
-    public static int convertStringToInt(String number) {
+    public static int convertStringToInt(final String number) {
         try {
             return Integer.parseInt(number);
         } catch (final NumberFormatException numberFormatException) {
-            throw numberFormatException;
+            throw new IllegalArgumentException();
         }
     }
 
-    public static List<Name> splitNamesOfCars(String namesOfCars) {
+    public static List<Name> splitNamesOfCars(final String namesOfCars) {
         return Arrays.stream(namesOfCars.split(CAR_NAME_SEPARATOR))
                 .map(Name::new)
                 .toList();
