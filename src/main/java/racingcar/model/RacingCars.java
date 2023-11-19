@@ -1,5 +1,6 @@
 package racingcar.model;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -17,10 +18,11 @@ public class RacingCars {
         this.racingCars = racingCars;
     }
 
-    public List<RacingCar> move(final RandomNumberGenerator randomNumberGenerator) {
-        return racingCars.stream()
+    public RacingCars move(final RandomNumberGenerator randomNumberGenerator) {
+        final List<RacingCar> movedRacingCars = racingCars.stream()
                 .map(car -> car.move(randomNumberGenerator.generate()))
                 .toList();
+        return new RacingCars(movedRacingCars);
     }
 
     public String findWinners() {
@@ -37,6 +39,10 @@ public class RacingCars {
         if (racingCars.size() != duplicateRacingCars.size()) {
             throw new IllegalArgumentException(CAR_NAME_DUPLICATION_EXCEPTION_MESSAGE);
         }
+    }
+
+    public List<RacingCar> getRacingCars() {
+        return Collections.unmodifiableList(racingCars);
     }
 
     private int getMaxLocationLength() {

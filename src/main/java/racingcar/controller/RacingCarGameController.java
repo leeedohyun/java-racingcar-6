@@ -27,14 +27,14 @@ public class RacingCarGameController {
 
         final List<Name> namesOfCars = Utils.splitNamesOfCars(inputView.inputCarsNamesOfCars());
         final List<RacingCar> racingCarList = RacingCarFactory.generateCar(namesOfCars);
-        final RacingCars racingCars = new RacingCars(racingCarList);
+        RacingCars racingCars = new RacingCars(racingCarList);
 
         outputView.printInputNumberOfMovesMessage();
         final int numberOfMoves = inputView.inputNumberOfMoves();
 
         for (int moveCount = 0; moveCount < numberOfMoves; moveCount++) {
-            final List<RacingCar> movedRacingCars = racingCars.move(randomNumberGenerator);
-            outputView.printCurrentLocations(movedRacingCars);
+            racingCars = racingCars.move(randomNumberGenerator);
+            outputView.printCurrentLocations(racingCars);
         }
 
         final String winnerNamesOfCars = racingCars.findWinners();

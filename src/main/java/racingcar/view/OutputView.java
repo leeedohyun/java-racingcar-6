@@ -1,7 +1,6 @@
 package racingcar.view;
 
-import java.util.List;
-import racingcar.model.RacingCar;
+import racingcar.model.RacingCars;
 
 public class OutputView {
 
@@ -17,10 +16,9 @@ public class OutputView {
         System.out.println(INPUT_NUMBERS_OF_MOVES_MESSAGE);
     }
 
-    public void printCurrentLocations(final List<RacingCar> movedRacingCar) {
-        for (final RacingCar racingCar : movedRacingCar) {
-            System.out.println(racingCar);
-        }
+    public void printCurrentLocations(final RacingCars racingCars) {
+        racingCars.getRacingCars()
+                .forEach(System.out::println);
         System.out.println();
     }
 
