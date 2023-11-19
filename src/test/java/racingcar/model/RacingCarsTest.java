@@ -13,10 +13,10 @@ class RacingCarsTest {
     @Test
     public void 이름_중복_테스트() {
         // given
-        final List<RacingCar> racingCars = List.of(new RacingCar(POBI), new RacingCar(WONI), new RacingCar(ANOTHER_POBI));
+        final List<Name> namesOfCars = List.of(POBI, WONI, ANOTHER_POBI);
 
         // then
-        Assertions.assertThatThrownBy(() -> new RacingCars(racingCars))
+        Assertions.assertThatThrownBy(() -> RacingCars.create(namesOfCars))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }

@@ -13,9 +13,16 @@ public class RacingCars {
 
     private final List<RacingCar> racingCars;
 
-    public RacingCars(final List<RacingCar> racingCars) {
+    private RacingCars(final List<RacingCar> racingCars) {
         validateDuplicateName(racingCars);
         this.racingCars = racingCars;
+    }
+
+    public static RacingCars create(final List<Name> namesOfCars) {
+        List<RacingCar> racingCars = namesOfCars.stream()
+                .map(RacingCar::new)
+                .toList();
+        return new RacingCars(racingCars);
     }
 
     public RacingCars move(final RandomNumberGenerator randomNumberGenerator) {
@@ -26,7 +33,7 @@ public class RacingCars {
     }
 
     public String findWinners() {
-        int maxLocationLength = getMaxLocationLength();
+        final int maxLocationLength = getMaxLocationLength();
         return racingCars.stream()
                 .filter(car -> car.getLocationLength() == maxLocationLength)
                 .map(RacingCar::getName)
