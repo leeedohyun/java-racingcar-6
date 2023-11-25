@@ -1,6 +1,5 @@
 package racingcar.model;
 
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -40,16 +39,25 @@ public class RacingCars {
                 .collect(Collectors.joining(WINNER_DELIMITER));
     }
 
+    public List<String> getCurrentLocations() {
+        return racingCars.stream()
+                .map(RacingCar::getCurrentLocation)
+                .toList();
+    }
+
+    @Override
+    public String toString() {
+        return "RacingCars{" +
+                "racingCars=" + racingCars +
+                '}';
+    }
+
     private void validateDuplicateName(final List<RacingCar> racingCars) {
         Set<RacingCar> duplicateRacingCars = new HashSet<>(racingCars);
 
         if (racingCars.size() != duplicateRacingCars.size()) {
             throw new IllegalArgumentException(CAR_NAME_DUPLICATION_EXCEPTION_MESSAGE);
         }
-    }
-
-    public List<RacingCar> getRacingCars() {
-        return Collections.unmodifiableList(racingCars);
     }
 
     private int getMaxLocationLength() {

@@ -37,6 +37,18 @@ public class RacingCar {
         return name.getName();
     }
 
+    public String getCurrentLocation() {
+        return getName() + SEPARATOR + location.getLocation();
+    }
+
+    @Override
+    public String toString() {
+        return "RacingCar{" +
+                "name=" + name +
+                ", location=" + location +
+                '}';
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -52,11 +64,6 @@ public class RacingCar {
     @Override
     public int hashCode() {
         return Objects.hash(name);
-    }
-
-    @Override
-    public String toString() {
-        return getName() + SEPARATOR + location;
     }
 
     private boolean isForward(final int randomNumber) {

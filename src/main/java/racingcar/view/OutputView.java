@@ -17,7 +17,7 @@ public class OutputView {
     }
 
     public void printCurrentLocations(final RacingCars racingCars) {
-        racingCars.getRacingCars()
+        racingCars.getCurrentLocations()
                 .forEach(System.out::println);
         System.out.println();
     }

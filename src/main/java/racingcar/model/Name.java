@@ -22,7 +22,14 @@ public class Name {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public String toString() {
+        return "Name{" +
+                "name='" + name + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(final Object o) {
         if (this == o) {
             return true;
         }

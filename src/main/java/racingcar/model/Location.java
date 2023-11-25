@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import java.util.Objects;
+
 public class Location {
 
     private static final String FORWARD_MOVEMENT_INDICATOR = "-";
@@ -19,26 +21,30 @@ public class Location {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public String toString() {
+        return "Location{" +
+                "location='" + location + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(final Object o) {
         if (this == o) {
             return true;
         }
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-
         Location location1 = (Location) o;
-
-        return location.equals(location1.location);
+        return Objects.equals(location, location1.location);
     }
 
     @Override
     public int hashCode() {
-        return location.hashCode();
+        return Objects.hash(location);
     }
 
-    @Override
-    public String toString() {
+    public String getLocation() {
         return location;
     }
 }
