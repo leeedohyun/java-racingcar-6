@@ -8,25 +8,25 @@ public class RacingCar {
     private static final String SEPARATOR = " : ";
     private static final String START_LOCATION = "";
 
-    private final Name name;
+    private final RacingCarName racingCarName;
     private final Location location;
 
-    public RacingCar(final Name name) {
-        this.name = name;
+    public RacingCar(final RacingCarName racingCarName) {
+        this.racingCarName = racingCarName;
         location = new Location(START_LOCATION);
     }
 
-    public RacingCar(final Name name, final Location location) {
-        this.name = name;
+    public RacingCar(final RacingCarName racingCarName, final Location location) {
+        this.racingCarName = racingCarName;
         this.location = location;
     }
 
     public RacingCar move(final int randomNumber) {
         if (isForward(randomNumber)) {
             final Location movedLocation = location.goForward();
-            return new RacingCar(name, movedLocation);
+            return new RacingCar(racingCarName, movedLocation);
         }
-        return new RacingCar(name, location);
+        return new RacingCar(racingCarName, location);
     }
 
     public int getLocationLength() {
@@ -34,7 +34,7 @@ public class RacingCar {
     }
 
     public String getName() {
-        return name.getName();
+        return racingCarName.getName();
     }
 
     public String getCurrentLocation() {
@@ -44,7 +44,7 @@ public class RacingCar {
     @Override
     public String toString() {
         return "RacingCar{" +
-                "name=" + name +
+                "name=" + racingCarName +
                 ", location=" + location +
                 '}';
     }
@@ -58,12 +58,12 @@ public class RacingCar {
             return false;
         }
         RacingCar racingCar = (RacingCar) o;
-        return Objects.equals(name, racingCar.name) && Objects.equals(location, racingCar.location);
+        return Objects.equals(racingCarName, racingCar.racingCarName) && Objects.equals(location, racingCar.location);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name);
+        return Objects.hash(racingCarName);
     }
 
     private boolean isForward(final int randomNumber) {

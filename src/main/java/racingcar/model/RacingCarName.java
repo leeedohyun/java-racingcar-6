@@ -2,7 +2,7 @@ package racingcar.model;
 
 import java.util.Objects;
 
-public class Name {
+public class RacingCarName {
 
     private static final int NAME_MAX_LENGTH = 5;
     private static final String CAR_NAME_LENGTH_EXCEPTION_MESSAGE = "5자 이하의 이름만 가능합니다.";
@@ -11,7 +11,7 @@ public class Name {
 
     private final String name;
 
-    public Name(final String name) {
+    public RacingCarName(final String name) {
         validateCarNameLength(name);
         validateCarNameHasBlank(name);
         this.name = name;
@@ -23,7 +23,7 @@ public class Name {
 
     @Override
     public String toString() {
-        return "Name{" +
+        return "RacingCarName{" +
                 "name='" + name + '\'' +
                 '}';
     }
@@ -36,8 +36,8 @@ public class Name {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Name name1 = (Name) o;
-        return Objects.equals(name, name1.name);
+        RacingCarName racingCarName1 = (RacingCarName) o;
+        return Objects.equals(name, racingCarName1.name);
     }
 
     @Override

@@ -1,7 +1,7 @@
 package racingcar.controller;
 
 import java.util.List;
-import racingcar.model.Name;
+import racingcar.model.RacingCarName;
 import racingcar.model.RacingCars;
 import racingcar.model.RandomNumberGenerator;
 import racingcar.model.Utils;
@@ -23,7 +23,7 @@ public class RacingCarGameController {
     public void playRacingCarGame() {
         outputView.printInputCarsNameMessage();
 
-        final List<Name> namesOfCars = Utils.splitNamesOfCars(inputView.inputCarsNamesOfCars());
+        final List<RacingCarName> namesOfCars = Utils.splitNamesOfCars(inputView.inputCarsNamesOfCars());
         RacingCars racingCars = RacingCars.create(namesOfCars);
 
         outputView.printInputNumberOfMovesMessage();

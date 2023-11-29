@@ -17,7 +17,7 @@ public class RacingCars {
         this.racingCars = racingCars;
     }
 
-    public static RacingCars create(final List<Name> namesOfCars) {
+    public static RacingCars create(final List<RacingCarName> namesOfCars) {
         List<RacingCar> racingCars = namesOfCars.stream()
                 .map(RacingCar::new)
                 .toList();

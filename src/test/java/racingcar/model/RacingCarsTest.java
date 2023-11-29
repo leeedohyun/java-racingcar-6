@@ -6,14 +6,14 @@ import org.junit.jupiter.api.Test;
 
 class RacingCarsTest {
 
-    private final Name POBI = new Name("pobi");
-    private final Name WONI = new Name("woni");
-    private final Name ANOTHER_POBI = new Name("pobi");
+    private final RacingCarName POBI = new RacingCarName("pobi");
+    private final RacingCarName WONI = new RacingCarName("woni");
+    private final RacingCarName ANOTHER_POBI = new RacingCarName("pobi");
 
     @Test
     public void 이름_중복_테스트() {
         // given
-        final List<Name> namesOfCars = List.of(POBI, WONI, ANOTHER_POBI);
+        final List<RacingCarName> namesOfCars = List.of(POBI, WONI, ANOTHER_POBI);
 
         // then
         Assertions.assertThatThrownBy(() -> RacingCars.create(namesOfCars))
