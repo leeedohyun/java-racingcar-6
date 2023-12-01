@@ -1,6 +1,7 @@
 package racingcar.view;
 
 import racingcar.model.RacingCars;
+import racingcar.model.dto.WinnersDto;
 
 public class OutputView {
 
@@ -22,7 +23,7 @@ public class OutputView {
         System.out.println();
     }
 
-    public void printWinnerNames(final String winnerNames) {
-        System.out.println(WINNER_MESSAGE + winnerNames);
+    public void printWinnerNames(final WinnersDto winnerDto) {
+        System.out.println(WINNER_MESSAGE + winnerDto.carNames());
     }
 }

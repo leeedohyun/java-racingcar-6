@@ -1,12 +1,11 @@
 package racingcar.controller;
 
-import java.util.List;
-import racingcar.model.RacingCarName;
 import racingcar.model.RacingCars;
 import racingcar.model.RandomNumberGenerator;
-import racingcar.model.Utils;
+import racingcar.model.dto.WinnersDto;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
+import racingcar.view.dto.NamesOfRacingCarDto;
 
 public class RacingCarGameController {
 
@@ -23,8 +22,8 @@ public class RacingCarGameController {
     public void playRacingCarGame() {
         outputView.printInputCarsNameMessage();
 
-        final List<RacingCarName> namesOfCars = Utils.splitNamesOfCars(inputView.inputCarsNamesOfCars());
-        RacingCars racingCars = RacingCars.create(namesOfCars);
+        final NamesOfRacingCarDto namesOfRacingCarDto = inputView.inputCarsNamesOfCars();
+        RacingCars racingCars = RacingCars.create(namesOfRacingCarDto.carNames());
 
         outputView.printInputNumberOfMovesMessage();
         final int numberOfMoves = inputView.inputNumberOfMoves();
@@ -34,8 +33,8 @@ public class RacingCarGameController {
             outputView.printCurrentLocations(racingCars);
         }
 
-        final String winnerNamesOfCars = racingCars.findWinners();
+        final WinnersDto winnersDto = racingCars.findWinners();
 
-        outputView.printWinnerNames(winnerNamesOfCars);
+        outputView.printWinnerNames(winnersDto);
     }
 }

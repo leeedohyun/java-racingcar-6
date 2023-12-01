@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
+import racingcar.model.dto.WinnersDto;
 
 public class RacingCars {
 
@@ -31,12 +32,13 @@ public class RacingCars {
         return new RacingCars(movedRacingCars);
     }
 
-    public String findWinners() {
+    public WinnersDto findWinners() {
         final int maxLocationLength = getMaxLocationLength();
-        return racingCars.stream()
+        final String winners = racingCars.stream()
                 .filter(car -> car.getLocationLength() == maxLocationLength)
                 .map(RacingCar::getName)
                 .collect(Collectors.joining(WINNER_DELIMITER));
+        return new WinnersDto(winners);
     }
 
     public List<String> getCurrentLocations() {
