@@ -14,4 +14,12 @@ public class Utils {
         return Arrays.stream(name.split(RACING_CAR_NAME_SPLITER))
                 .toList();
     }
+
+    public static int convertInt(final String tryNumber) {
+        try {
+            return Integer.parseInt(tryNumber);
+        } catch (final NumberFormatException e) {
+            throw new IllegalArgumentException();
+        }
+    }
 }
