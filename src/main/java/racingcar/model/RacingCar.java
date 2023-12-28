@@ -20,12 +20,16 @@ public class RacingCar {
     }
 
     public void move(final int random) {
-        if (random >= MIN_FORWARD_THRESHOLD) {
+        if (canMove(random)) {
             location++;
         }
     }
 
     public int getLocation() {
         return location;
+    }
+
+    private boolean canMove(final int random) {
+        return random >= MIN_FORWARD_THRESHOLD;
     }
 }
