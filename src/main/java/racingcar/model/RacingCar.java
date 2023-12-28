@@ -3,7 +3,10 @@ package racingcar.model;
 public class RacingCar {
 
     private static final int MAX_NAME_LENGTH = 4;
+    private static final int MIN_FORWARD_THRESHOLD = 4;
+
     private final String name;
+    private int location;
 
     public RacingCar(final String name) {
         validateName(name);
@@ -14,5 +17,15 @@ public class RacingCar {
         if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException();
         }
+    }
+
+    public void move(final int random) {
+        if (random >= MIN_FORWARD_THRESHOLD) {
+            location++;
+        }
+    }
+
+    public int getLocation() {
+        return location;
     }
 }
