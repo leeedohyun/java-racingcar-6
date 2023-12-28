@@ -20,12 +20,8 @@ public class RacingCars {
     }
 
     public List<RacingCar> findWinners() {
-        int max = cars.stream()
-                .mapToInt(RacingCar::getLocation)
-                .max()
-                .orElse(0);
         return cars.stream()
-                .filter(racingCar -> racingCar.getLocation() == max)
+                .filter(this::isMaxLocation)
                 .toList();
     }
 
@@ -34,5 +30,16 @@ public class RacingCars {
         return "RacingCars{" +
                 "cars=" + cars +
                 '}';
+    }
+
+    private int getMaxLocation() {
+        return cars.stream()
+                .mapToInt(RacingCar::getLocation)
+                .max()
+                .orElse(0);
+    }
+
+    private boolean isMaxLocation(final RacingCar racingCar) {
+        return racingCar.getLocation() == getMaxLocation();
     }
 }
