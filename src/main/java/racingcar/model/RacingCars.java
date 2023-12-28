@@ -19,6 +19,16 @@ public class RacingCars {
         return Collections.unmodifiableList(cars);
     }
 
+    public List<RacingCar> findWinners() {
+        int max = cars.stream()
+                .mapToInt(RacingCar::getLocation)
+                .max()
+                .orElse(0);
+        return cars.stream()
+                .filter(racingCar -> racingCar.getLocation() == max)
+                .toList();
+    }
+
     @Override
     public String toString() {
         return "RacingCars{" +
