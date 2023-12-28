@@ -1,5 +1,7 @@
 package racingcar.model;
 
+import java.util.Objects;
+
 public class RacingCar {
 
     private static final int MAX_NAME_LENGTH = 4;
@@ -11,6 +13,11 @@ public class RacingCar {
     public RacingCar(final String name) {
         validateName(name);
         this.name = name;
+    }
+
+    public RacingCar(final String name, final int location) {
+        this.name = name;
+        this.location = location;
     }
 
     private void validateName(final String name) {
@@ -27,6 +34,31 @@ public class RacingCar {
 
     public int getLocation() {
         return location;
+    }
+
+    @Override
+    public String toString() {
+        return "RacingCar{" +
+                "name='" + name + '\'' +
+                ", location=" + location +
+                '}';
+    }
+
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        RacingCar racingCar = (RacingCar) o;
+        return location == racingCar.location && Objects.equals(name, racingCar.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, location);
     }
 
     private boolean canMove(final int random) {
