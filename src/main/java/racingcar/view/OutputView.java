@@ -11,9 +11,12 @@ public class OutputView {
 
     public void printWinners(final List<RacingCar> winners) {
         System.out.print("최종 우승자 : ");
-        String result = winners.stream()
+        System.out.println(concatenateWinnerNames(winners));
+    }
+
+    private String concatenateWinnerNames(final List<RacingCar> winners) {
+        return winners.stream()
                 .map(RacingCar::getName)
                 .collect(Collectors.joining(WINNER_DELIMITER));
-        System.out.println(result);
     }
 }
