@@ -9,19 +9,15 @@ import racingcar.model.RacingCars;
 public class OutputView {
 
     private static final String WINNER_DELIMITER = ", ";
+    private static final String MOVING_LOCATION_MARKER = "-";
 
     public void printResultMessage() {
         System.out.println("\n실행 결과");
     }
 
     public void printResult(final RacingCars racingCars) {
-        for (RacingCar car : racingCars.getCars()) {
-            System.out.print(car.getName() + " : ");
-            final StringBuilder result = new StringBuilder();
-            for (int i = 0; i < car.getLocation(); i++) {
-                result.append("-");
-            }
-            System.out.println(result);
+        for (final RacingCar car : racingCars.getCars()) {
+            System.out.print(car.getName() + " : " + MOVING_LOCATION_MARKER.repeat(car.getLocation()));
         }
         System.out.println();
     }
