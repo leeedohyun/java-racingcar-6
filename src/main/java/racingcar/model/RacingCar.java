@@ -36,6 +36,10 @@ public class RacingCar {
         return location;
     }
 
+    public String getName() {
+        return name;
+    }
+
     @Override
     public String toString() {
         return "RacingCar{" +
