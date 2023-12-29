@@ -5,7 +5,6 @@ import java.util.List;
 import racingcar.model.RacingCar;
 import racingcar.model.RacingCars;
 import racingcar.model.RandomNumberGenerator;
-import racingcar.util.Utils;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -20,7 +19,7 @@ public class RacingCarGameController {
     }
 
     public void play() {
-        final List<String> names = Utils.splitName(inputView.inputRacingCarName());
+        final List<String> names = inputView.inputRacingCarName();
         final List<RacingCar> cars = names.stream()
                 .map(RacingCar::new)
                 .toList();
