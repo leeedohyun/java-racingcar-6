@@ -1,8 +1,5 @@
 package racingcar.contorller;
 
-import java.util.List;
-
-import racingcar.model.RacingCar;
 import racingcar.model.RacingCars;
 import racingcar.model.RandomNumberGenerator;
 import racingcar.view.InputView;
@@ -19,12 +16,7 @@ public class RacingCarGameController {
     }
 
     public void play() {
-        final List<String> names = inputView.inputRacingCarName();
-        final List<RacingCar> cars = names.stream()
-                .map(name -> RacingCar.create(name, 0))
-                .toList();
-        final RacingCars racingCars = new RacingCars(cars);
-
+        final RacingCars racingCars = RacingCars.create(inputView.inputRacingCarName());
         final int tryNumber = inputView.inputTryNumber();
 
         outputView.printResultMessage();

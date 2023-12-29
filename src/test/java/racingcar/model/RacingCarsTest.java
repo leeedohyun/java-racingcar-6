@@ -13,7 +13,7 @@ class RacingCarsTest {
     @Test
     void 모든_자동차_전진() {
         // given
-        final RacingCars racingCars = new RacingCars(List.of(createWithName("pobi"), createWithName("woni")));
+        final RacingCars racingCars = RacingCars.create(List.of("pobi", "woni"));
         final RandomNumberGenerator mock = Mockito.mock(RandomNumberGenerator.class);
 
         given(mock.generate())
@@ -29,7 +29,7 @@ class RacingCarsTest {
     @Test
     void 모든_자동차_정지() {
         // given
-        final RacingCars racingCars = new RacingCars(List.of(createWithName("pobi"), createWithName("woni")));
+        final RacingCars racingCars = RacingCars.create(List.of("pobi", "woni"));
         final RandomNumberGenerator mock = Mockito.mock(RandomNumberGenerator.class);
 
         given(mock.generate())
@@ -68,9 +68,5 @@ class RacingCarsTest {
         // then
         assertThat(winners).hasSize(2)
                 .contains(RacingCar.create("pobi", 2), RacingCar.create("woni", 2));
-    }
-
-    private RacingCar createWithName(final String name) {
-        return RacingCar.create(name, 0);
     }
 }

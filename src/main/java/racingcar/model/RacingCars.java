@@ -11,6 +11,13 @@ public class RacingCars {
         this.cars = cars;
     }
 
+    public static RacingCars create(final List<String> names) {
+        final List<RacingCar> cars = names.stream()
+                .map(name -> RacingCar.create(name, 0))
+                .toList();
+        return new RacingCars(cars);
+    }
+
     public void move(final RandomNumberGenerator randomNumberGenerator) {
         cars.forEach(racingCar -> racingCar.move(randomNumberGenerator.generate()));
     }
