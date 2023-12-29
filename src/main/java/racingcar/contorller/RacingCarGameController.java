@@ -21,7 +21,7 @@ public class RacingCarGameController {
     public void play() {
         final List<String> names = inputView.inputRacingCarName();
         final List<RacingCar> cars = names.stream()
-                .map(RacingCar::new)
+                .map(name -> RacingCar.create(name, 0))
                 .toList();
         final RacingCars racingCars = new RacingCars(cars);
 

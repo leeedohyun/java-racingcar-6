@@ -13,7 +13,7 @@ class RacingCarsTest {
     @Test
     void 모든_자동차_전진() {
         // given
-        final RacingCars racingCars = new RacingCars(List.of(new RacingCar("pobi"), new RacingCar("woni")));
+        final RacingCars racingCars = new RacingCars(List.of(createWithName("pobi"), createWithName("woni")));
         final RandomNumberGenerator mock = Mockito.mock(RandomNumberGenerator.class);
 
         given(mock.generate())
@@ -23,13 +23,13 @@ class RacingCarsTest {
         racingCars.move(mock);
 
         // then
-        assertThat(racingCars.getCars()).contains(new RacingCar("pobi", 1));
+        assertThat(racingCars.getCars()).contains(RacingCar.create("pobi", 1));
     }
 
     @Test
     void 모든_자동차_정지() {
         // given
-        final RacingCars racingCars = new RacingCars(List.of(new RacingCar("pobi"), new RacingCar("woni")));
+        final RacingCars racingCars = new RacingCars(List.of(createWithName("pobi"), createWithName("woni")));
         final RandomNumberGenerator mock = Mockito.mock(RandomNumberGenerator.class);
 
         given(mock.generate())
@@ -39,13 +39,13 @@ class RacingCarsTest {
         racingCars.move(mock);
 
         // then
-        assertThat(racingCars.getCars()).contains(new RacingCar("pobi", 0));
+        assertThat(racingCars.getCars()).contains(RacingCar.create("pobi", 0));
     }
 
     @Test
     void 우승자가_1명인_경우() {
         // given
-        final List<RacingCar> cars = List.of(new RacingCar("pobi", 2), new RacingCar("woni", 1));
+        final List<RacingCar> cars = List.of(RacingCar.create("pobi", 2), RacingCar.create("woni", 1));
         final RacingCars racingCars = new RacingCars(cars);
 
         // when
@@ -53,13 +53,13 @@ class RacingCarsTest {
 
         // then
         assertThat(winners).hasSize(1)
-                .contains(new RacingCar("pobi", 2));
+                .contains(RacingCar.create("pobi", 2));
     }
 
     @Test
     void 우승자가_여러_명인_경우() {
         // given
-        final List<RacingCar> cars = List.of(new RacingCar("pobi", 2), new RacingCar("woni", 2));
+        final List<RacingCar> cars = List.of(RacingCar.create("pobi", 2), RacingCar.create("woni", 2));
         final RacingCars racingCars = new RacingCars(cars);
 
         // when
@@ -67,6 +67,10 @@ class RacingCarsTest {
 
         // then
         assertThat(winners).hasSize(2)
-                .contains(new RacingCar("pobi", 2), new RacingCar("woni", 2));
+                .contains(RacingCar.create("pobi", 2), RacingCar.create("woni", 2));
+    }
+
+    private RacingCar createWithName(final String name) {
+        return RacingCar.create(name, 0);
     }
 }
