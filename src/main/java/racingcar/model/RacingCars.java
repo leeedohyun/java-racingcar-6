@@ -15,14 +15,14 @@ public class RacingCars {
         cars.forEach(racingCar -> racingCar.move(randomNumberGenerator.generate()));
     }
 
-    public List<RacingCar> getCars() {
-        return Collections.unmodifiableList(cars);
-    }
-
     public List<RacingCar> findWinners() {
         return cars.stream()
                 .filter(this::isMaxLocation)
                 .toList();
+    }
+
+    public List<RacingCar> getCars() {
+        return Collections.unmodifiableList(cars);
     }
 
     @Override
